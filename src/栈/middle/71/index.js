@@ -39,5 +39,17 @@
  * @return {string}
  */
 var simplifyPath = function(path) {
-    
+  res = []
+  path.split('/').forEach(v => {
+    if(v === '..') {
+      res.pop()
+    } else {
+      if(v !== '' && v !== '.')
+      res.push(v)
+    }
+  })
+  return '/' + res.join('/')
 };
+
+console.log(simplifyPath("/a/./b/../../c/"))
+console.log(123)
